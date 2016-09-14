@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ModusDNAModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Applicant">
+    <Key>
+      <PropertyRef Name="ApplicantID" />
+    </Key>
+    <Property Name="ApplicantID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ApplicantName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicantSurname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicantIdentity" Type="String" MaxLength="13" FixedLength="true" Unicode="true" />
+    <Property Name="ApplicantCell" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ApplicantEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ApplicantCV" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CareerApplicants" Relationship="Self.FK_CareerApplicants_Applicants" FromRole="Applicants" ToRole="CareerApplicants" />
+  </EntityType>
+  <EntityType Name="Career">
+    <Key>
+      <PropertyRef Name="CarrerID" />
+    </Key>
+    <Property Name="CarrerID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CareeName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CareerDescription" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CareerSpecification" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="CareerApplicants" Relationship="Self.FK_CareerApplicants_Career" FromRole="Career" ToRole="CareerApplicants" />
+  </EntityType>
+  <EntityType Name="CareerApplicant">
+    <Key>
+      <PropertyRef Name="ApplicationNumber" />
+    </Key>
+    <Property Name="ApplicationNumber" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CareerID" Type="Int32" />
+    <Property Name="ApplicantID" Type="Int32" />
+    <Property Name="ApplicationPosition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Applicant" Relationship="Self.FK_CareerApplicants_Applicants" FromRole="CareerApplicants" ToRole="Applicants" />
+    <NavigationProperty Name="Career" Relationship="Self.FK_CareerApplicants_Career" FromRole="CareerApplicants" ToRole="Career" />
+  </EntityType>
+  <Association Name="FK_CareerApplicants_Applicants">
+    <End Role="Applicants" Type="Self.Applicant" Multiplicity="0..1" />
+    <End Role="CareerApplicants" Type="Self.CareerApplicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Applicants">
+        <PropertyRef Name="ApplicantID" />
+      </Principal>
+      <Dependent Role="CareerApplicants">
+        <PropertyRef Name="ApplicantID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CareerApplicants_Career">
+    <End Role="Career" Type="Self.Career" Multiplicity="0..1" />
+    <End Role="CareerApplicants" Type="Self.CareerApplicant" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Career">
+        <PropertyRef Name="CarrerID" />
+      </Principal>
+      <Dependent Role="CareerApplicants">
+        <PropertyRef Name="CareerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ModusDNA" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Applicants" EntityType="Self.Applicant" />
+    <EntitySet Name="Careers" EntityType="Self.Career" />
+    <EntitySet Name="CareerApplicants" EntityType="Self.CareerApplicant" />
+    <AssociationSet Name="FK_CareerApplicants_Applicants" Association="Self.FK_CareerApplicants_Applicants">
+      <End Role="Applicants" EntitySet="Applicants" />
+      <End Role="CareerApplicants" EntitySet="CareerApplicants" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CareerApplicants_Career" Association="Self.FK_CareerApplicants_Career">
+      <End Role="Career" EntitySet="Careers" />
+      <End Role="CareerApplicants" EntitySet="CareerApplicants" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

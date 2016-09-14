@@ -1,0 +1,79 @@
+﻿@model CSDropdownListMVC4.Models.CascadingDropDownSampleModel
+@{
+    ViewBag.Title = "Upload";
+}
+
+@section Scripts
+{
+    <script src="~/Scripts/CascadingDropDownSample.js"></script>
+}
+<h2>Upload Documents</h2>
+
+
+@using (Html.BeginForm("Upload", "Home", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <div class="col-xs-12" style="height:50px;"></div>
+
+        <hr />
+        <div class="form-group">
+            @Html.Label("Application", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <select id="make" class="size-200 form-control" name="make">
+                    <option value="-1">Please select a Application Type</option>
+                    @foreach (KeyValuePair<string, string> make in Model.Makes)
+                {
+                        <option value="@make.Key">@make.Value</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("Specialization", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <select id="model" class="size-200 form-control" name="model" disabled>
+                    <option value="-1">Type of Specialization</option>
+                </select>
+            </div>
+        </div>
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("CV", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <input type="file" id="Avatar" name="upload" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.Label("ID DOCUMENT", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <input type="file" id="Avatar" name="idDoc" class="form-control" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("ACADEMIC RESULTS", new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                <input type="file" id="Avatar" name="AccResults" class="form-control" />
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Apply" class="btn home-btn wow fadeInLeft" />
+            </div>
+        </div>
+
+
+        <div>
+            <a href="javascript: history.go(-1)">Go Back</a>
+        </div>
+    </div>
+}

@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModusDNAModelStoreContainer" CdmEntityContainer="ModusDNAEntities">
+    <EntitySetMapping Name="Applicants">
+      <EntityTypeMapping TypeName="ModusDNAModel.Applicant">
+        <MappingFragment StoreEntitySet="Applicants">
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="ApplicantName" ColumnName="ApplicantName" />
+          <ScalarProperty Name="ApplicantSurname" ColumnName="ApplicantSurname" />
+          <ScalarProperty Name="ApplicantIdentity" ColumnName="ApplicantIdentity" />
+          <ScalarProperty Name="ApplicantCell" ColumnName="ApplicantCell" />
+          <ScalarProperty Name="ApplicantEmail" ColumnName="ApplicantEmail" />
+          <ScalarProperty Name="ApplicantCV" ColumnName="ApplicantCV" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Careers">
+      <EntityTypeMapping TypeName="ModusDNAModel.Career">
+        <MappingFragment StoreEntitySet="Career">
+          <ScalarProperty Name="CarrerID" ColumnName="CarrerID" />
+          <ScalarProperty Name="CareeName" ColumnName="CareeName" />
+          <ScalarProperty Name="CareerDescription" ColumnName="CareerDescription" />
+          <ScalarProperty Name="CareerSpecification" ColumnName="CareerSpecification" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CareerApplicants">
+      <EntityTypeMapping TypeName="ModusDNAModel.CareerApplicant">
+        <MappingFragment StoreEntitySet="CareerApplicants">
+          <ScalarProperty Name="ApplicationNumber" ColumnName="ApplicationNumber" />
+          <ScalarProperty Name="CareerID" ColumnName="CareerID" />
+          <ScalarProperty Name="ApplicantID" ColumnName="ApplicantID" />
+          <ScalarProperty Name="ApplicationPosition" ColumnName="ApplicationPosition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
