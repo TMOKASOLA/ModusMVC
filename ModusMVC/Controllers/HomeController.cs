@@ -6,9 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Ionic.Zip;
 using System.Net.Mail;
 using System.Net;
+using Ionic.Zip;
 
 namespace ModusMVC.Controllers
 {
@@ -288,9 +288,9 @@ namespace ModusMVC.Controllers
        
             }
 
-#pragma warning disable CS0168 // The variable 'error' is declared but never used
+//#pragma warning disable CS0168 // The variable 'error' is declared but never used
             catch (Exception error)
-#pragma warning restore CS0168 // The variable 'error' is declared but never used
+//#pragma warning restore CS0168 // The variable 'error' is declared but never used
             {
                
             }

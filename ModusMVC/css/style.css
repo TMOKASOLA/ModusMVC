@@ -464,6 +464,7 @@ div.carousel-inner .item img {
         font-size: 18px;
         line-height: 27px;
         padding-top: 50px;
+        
     }
 
     .leadership_caption h2 {
@@ -472,6 +473,7 @@ div.carousel-inner .item img {
         font-weight: 900;
         font-size: 30px;
         margin-top: 25px;
+        text-align: center;
     }
 
     .leadership_caption h4 {
@@ -1317,11 +1319,74 @@ p {
 }
 
 #Academy {
-    background-image: url(../images/ComingSoon.jpg);
+  padding-bottom:110px;
+  
 }
+
 
 .fadeInUp > ul > li {
     list-style: none;
+}
+.flip3D{
+
+	width: 240px;
+	height: 180px;
+    margin:15px;
+    display:inline-block;
+  
+   
+
+  
+
+}
+.flip3D > .front{
+
+	position:absolute;
+	transform: perspective(600px) rotateY(0deg);
+	-webkit-transform: perspective(600px) rotateY(0deg);
+	
+	background: #f39c12; width: 270px; height: 240px; border-radius:7px;
+	-webkit-backface-visibility: hidden;
+    
+
+	backface-visibility: hidden;
+	-webkit-transition: transform .5s linear 0s;
+
+	transition: transform .5s linear 0s;
+    color:#000000;
+    text-align:center;
+    font-size:18px;
+    opacity:0.5;
+    font-weight:600;
+  
+}
+.flip3D > .back{
+
+	position: absolute;
+	transform: perspective(600px) rotateY(180deg);
+	-webkit-transform: perspective(600px) rotateY(180deg);
+	
+	background: #ffffff; width: 270px; height: 240px;; border-radius:7px;
+	-webkit-backface-visibility: hidden;
+	
+	backface-visibility: hidden;
+	-webkit-transition: transform .5s linear 0s;
+	
+	transition: transform .5s linear 0s;
+    text-align:center;
+    color: #f39c12;
+    font-size:16px;
+
+}
+.flip3D:hover > .front{
+    transform: perspective(600px) rotateY(-180deg);
+    -webkit-transform: perspective(600px) rotateY(-180deg);
+
+}
+.flip3D:hover > .back{
+    transform: perspective(600px) rotateY(0deg);
+    -webkit-transform: perspective(600px) rotateY(0deg);
+
 }
 
 
