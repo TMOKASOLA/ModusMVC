@@ -14,7 +14,9 @@ namespace ModusMVC.Controllers
 {
     public class HomeController : Controller
     {
+        StreamWriter writer = null;
         ModusDNAEntities db = new ModusDNAEntities();
+        Applicant tempApp = new Applicant();
         public ActionResult Index()
         {
             return View();
@@ -40,9 +42,12 @@ namespace ModusMVC.Controllers
         [HttpPost]
         public ActionResult JoinUs(Applicant applicant)
         {
+            tempApp = applicant;
             string name = applicant.ApplicantName + " " + applicant.ApplicantSurname;
-          //  RegistrationSave = applicant;
+            //  RegistrationSave = applicant;
             // string strMappath = "~/CV/ " + name;
+
+            Session["PersonInfo"] = applicant;
             applicant.ApplicantCV = "null";
             db.Applicants.Add(applicant);
             db.SaveChanges();
@@ -71,6 +76,7 @@ namespace ModusMVC.Controllers
             string roleValue1 = formCollect.Get("make");
             string specialization = formCollect.Get("model");
             string applicantName = Session["Foldername"].ToString();
+            var applicant = (Applicant)Session["PersonInfo"];
             switch (roleValue1)
             {
                 case "1":
@@ -130,9 +136,14 @@ namespace ModusMVC.Controllers
                     }
 
             }
-
+            string readmePageURL = "~/App_Data/tempFiles/Readme(" + applicantName + ").txt";
+            writer = new StreamWriter(Server.MapPath("~/App_Data/tempFiles/Readme("+applicantName+").txt"), true);
 
             string parth = roleValue1 + "/" + specialization + "/";
+   
+          
+            writer.WriteLine("Position applying for: " + roleValue1+" "+specialization);
+            writer.Close();
 
             if (roleValue1 == "Learnership")
             {
@@ -179,10 +190,28 @@ namespace ModusMVC.Controllers
                 AccResults.SaveAs(path);
                     zip.AddFile(path, "Documents");
                 }
+                if (applicantName !=null)
+                {
+                    writer = new StreamWriter(Server.MapPath(Session["Foldername"].ToString() + " /"+applicant.ApplicantName+".txt"),false);
+                    writer.WriteLine("Name: " + applicant.ApplicantName);
+                    writer.WriteLine("Surname: " + applicant.ApplicantSurname);
+                    writer.WriteLine("ID: " + applicant.ApplicantIdentity);
+                    writer.WriteLine("Email: " + applicant.ApplicantEmail);
+                    writer.WriteLine("Cell: " + applicant.ApplicantCell);
+                    writer.Close();
+
+                    var fileName = Path.GetFileName(readmePageURL);
+                    var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                    AccResults.SaveAs(path);
+                    zip.AddFile(path, "Documents");
+                }
+               
+
+                
             //////////////////////////////////////
             //adding zip
-      
-              
+
+
                 zip.Save(Server.MapPath("~/CV/" + parth + applicantName+ ".zip"));
             }
             return View("Success");

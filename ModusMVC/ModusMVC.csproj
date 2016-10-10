@@ -449,7 +449,7 @@
     <Content Include="Views\ApplicantsFiles\LearnershipSD.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Data\tempFiles\" />
     <Folder Include="CV\" />
     <Folder Include="Views\Upload\" />
   </ItemGroup>
