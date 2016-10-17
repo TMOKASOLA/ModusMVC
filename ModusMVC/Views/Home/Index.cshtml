@@ -76,15 +76,15 @@
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US<span class="caret"></span></a>
                                 <ul class="dropdown-menu" id="dp">
                                     <li><a href="#ABOUT">COMPANY PROFILE</a></li>
+                                    <li><a href="#Academy">ACADEMY</a></li>
                                     <li><a href="#LEADERSHIP">LEADERSHIP</a></li>
                                 </ul>
                             </li>
                             <li><a href="#FEATURES">SERVICES</a></li>
                             <li><a href="#SCREENS">CLIENTS</a> </li>
                             <li><a href="#DOWNLOAD">VACANCIES </a> </li>
-                            <li>@Html.ActionLink("JOIN US", "JoinUs", "Home")</li>
-                            <li><a href="#Academy">ACADEMY </a> </li>
                             <li><a href="#CONTACT">CONTACT </a> </li>
+                            <li>@Html.ActionLink("JOIN US", "JoinUs", "Home")</li>
                         </ul>
                     </div>
                     <!-- /.navbar-collapse -->
@@ -195,9 +195,9 @@
                     <div class="col-md-6 wow fadeInRightBig">
                         <!-- VIDEO -->
                         <div class="video">
-                            <video controls width="560" height="315">
-                                <source src="~/Video/IMG_5151_convert-video-online.mp4" type="video/mp4" />
-                            </video>
+                            <iframe title="YouTube video player" class="youtube-player" type="text/html"
+                                    width="640" height="390" src="http://www.youtube.com/embed/GPgp5JgpL4M"
+                                    frameborder="0" allowFullScreen></iframe>
                         </div>
                     </div>
                 </div>
@@ -205,7 +205,7 @@
         </div>
     </section>
     <!--////////////////////////////////////////////////////////////////////////////////////////////////////-->
-    <section class="leadership parallax" id="Academy">
+    <section class="header parallax" id="Academy">
         <div class="bounce1">
             <div class="leadership_caption">
                 <h2>ACADEMY</h2>
@@ -249,7 +249,7 @@
             </div>
     </section>
     <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
-    <section id="LEADERSHIP" class="leadership parallax">
+    <section id="LEADERSHIP" class="header parallax">
         <div class="section_overlay">
             <div class="container">
                 <div class="leadership_caption">
@@ -420,7 +420,10 @@
                     <div class="item">
                     <a>  <img src="~/images/CloudSmiths-Logo-180.png" width="60" height="60" rel="prettyPhoto[pp_gal]"/></a>
                     </div>
-
+                    <div class="item">
+                        <a>  <img src="~/images/indogoCube.png" width="60" height="60" rel="prettyPhoto[pp_gal]" /></a>
+                    </div>
+                    
                 </div>
             </div>
         </div>

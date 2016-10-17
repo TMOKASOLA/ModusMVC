@@ -220,6 +220,7 @@
     <Compile Include="Controllers\GraduatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\UploadController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -288,6 +289,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\1328573207_black-power.jpg" />
+    <Content Include="images\IndigoCube.jpg" />
     <Content Include="images\africa.png" />
     <Content Include="images\Appartment_Flandrin.jpg" />
     <Content Include="images\bg01.jpg" />
@@ -307,6 +309,7 @@
     <Content Include="images\Graduates.png" />
     <Content Include="images\home.jpg" />
     <Content Include="images\imageedit_1_4390436235.png" />
+    <Content Include="images\indogoCube.png" />
     <Content Include="images\internship.jpg" />
     <Content Include="images\learnership.jpg" />
     <Content Include="images\logo.png" />
@@ -391,7 +394,6 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Video\IMG_5151_convert-video-online.mp4" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
