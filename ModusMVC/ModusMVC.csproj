@@ -314,6 +314,8 @@
     <Content Include="images\internship.jpg" />
     <Content Include="images\learnership.jpg" />
     <Content Include="images\logo.png" />
+    <Content Include="images\MCSETA.png" />
+    <Content Include="images\Mthunzi.jpg" />
     <Content Include="images\prudence-mabitsela.jpg" />
     <Content Include="images\Studio%2520Apartment%2520-%2520W.jpg" />
     <Content Include="images\subscribe.jpg" />
@@ -381,6 +383,7 @@
     <Content Include="Models\ModusDNA.edmx.diagram">
       <DependentUpon>ModusDNA.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\local.pubxml" />
     <None Include="Properties\PublishProfiles\ModusMVC - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\CascadingDropDownSample.js" />
@@ -483,11 +486,9 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>62457</DevelopmentServerPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://localhost:62457/</IISUrl>
-          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
-          <IISAppRootUrl>http://localhost:62457/</IISAppRootUrl>
+          <IISUrl>http://localhost:52457/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
