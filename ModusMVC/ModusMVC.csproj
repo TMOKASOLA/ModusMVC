@@ -289,6 +289,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\1328573207_black-power.jpg" />
+    <Content Include="images\IndigoClient.png" />
     <Content Include="images\IndigoCube.jpg" />
     <Content Include="images\africa.png" />
     <Content Include="images\Appartment_Flandrin.jpg" />
@@ -485,6 +486,8 @@
           <DevelopmentServerPort>62457</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:62457/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:62457/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
