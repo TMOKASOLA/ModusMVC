@@ -930,6 +930,7 @@ div.carousel-inner .item img {
             list-style: none;
             display: inline;
             padding-left: 10px;
+
         }
 
             .social_icons ul li a {
@@ -946,6 +947,7 @@ div.carousel-inner .item img {
                 -moz-transition: all 1s;
                 -o-transition: all 1s;
                 transition: all 1s;
+               
             }
 
                 .social_icons ul li a i {

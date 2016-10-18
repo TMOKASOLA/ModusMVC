@@ -81,10 +81,9 @@
                                 </ul>
                             </li>
                             <li><a href="#SERVICES">SERVICES</a></li>
-                            <li><a href="#ourteam">OUR TEAM</a></li>
-                            
                             <li><a href="#CLIENTS">CLIENTS</a> </li>
                             <li><a href="#VACANCIES">VACANCIES </a> </li>
+                            <li><a href="#ourteam">OUR TEAM</a></li>
                             <li><a href="#CONTACT">CONTACT </a> </li>
                             <li>@Html.ActionLink("JOIN US", "JoinUs", "Home")</li>
                         </ul>
@@ -207,10 +206,12 @@
         </div>
     </section>
     <!--////////////////////////////////////////////////////////////////////////////////////////////////////-->
+   
+    <!--Services-->
     <section class="header parallax" id="Academy">
         <div class="bounce1">
             <div class="leadership_caption">
-               
+
                 <h2>ACADEMY</h2>
                 <div id="mcseta">
                     <img src="~/images/MCSETA.png" />
@@ -235,13 +236,6 @@
 
                 </div>
 
-                <div class="flip3D">
-
-                    <div class="back"><br /><br /><br />ID:63909<br />QUALIFICATION TITLE:<br />National Certificate: Business Analysis</div>
-                    <div class="front"><br /><br />NQF LEVEL<br />Level 6<br /><br />CREDITS<br />149</div>
-
-
-                </div>
 
                 <div class="flip3D">
 
@@ -250,10 +244,18 @@
 
 
                 </div>
+                <div class="flip3D">
 
-        </div>
+                    <div class="back"><br /><br /><br />ID:63909<br />QUALIFICATION TITLE:<br />National Certificate: Business Analysis</div>
+                    <div class="front"><br /><br />NQF LEVEL<br />Level 6<br /><br />CREDITS<br />149</div>
+
+
+                </div>
+
             </div>
+        </div>
     </section>
+   
     <!--/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////-->
     <section id="LEADERSHIP" class="header parallax">
         <div class="section_overlay">
@@ -312,8 +314,6 @@
             </div>
         </div>
     </section>
- 
-
     <section id="SERVICES" class="SERVICES page">
         <div class="container">
             <div class="row">
@@ -401,64 +401,9 @@
             </div>
         </div>
     </section>
+  
     <!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
-    <section id="ourteam" class="header parallax">
-        <div class="section_overlay">
-            <div class="container">
-                <div class="leadership_caption">
-                    <h2>OUR TEAM</h2>
-                </div>
-                <div class="row">
-                    <div class="col-md-12 wow bounceInDown">
-                        <div id="carousel-example-caption-testimonial" class="carousel slide" data-ride="carousel">
-                            <!-- Indicators -->
-                            <ol class="carousel-indicators">
-                                <li data-target="#carousel-example-caption-testimonial" data-slide-to="0" class="active"></li>
-                                <li data-target="#carousel-example-caption-testimonial" data-slide-to="1"></li>
-                                <li data-target="#carousel-example-caption-testimonial" data-slide-to="2"></li>
-                            </ol>
-
-                            <!-- Wrapper for slides -->
-
-                            <div class="carousel-inner">
-                                <div class="item active">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12 text-center">
-                                                <!-- IMAGE -->
-                                                <img src="~/images/Mthunzi.jpg" alt="">
-                                                <div class="testimonial_caption">
-                                                    <!-- DESCRIPTION -->
-                                                    <h2>MTHUNZI HUNA</h2>
-                                                    <h4><span>ADMINISTRATOR</span></h4>
-
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-md-12 text-center">
-                                                <!-- IMAGE -->
-                                                <img src="~/images/Mthunzi.jpg" alt="">
-                                                <div class="testimonial_caption">
-                                                    <!-- DESCRIPTION -->
-                                                    <h2>MTHUNZI HUNA</h2>
-                                                    <h4><span> ADMIMISTRATOR</span></h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <!--||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||-->
 
@@ -752,6 +697,63 @@
                 <!--END VACANCIES TITLE -->
             </div>
 
+        </div>
+    </section>
+    <section id="ourteam" class="header parallax">
+        <div class="section_overlay">
+            <div class="container">
+                <div class="leadership_caption">
+                    <h2>OUR TEAM</h2>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 wow bounceInDown">
+                        <div id="carousel-example-caption-testimonial" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-example-caption-testimonial" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-example-caption-testimonial" data-slide-to="1"></li>
+                                <li data-target="#carousel-example-caption-testimonial" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <!-- IMAGE -->
+                                                <img src="~/images/Mthunzi.jpg" alt="">
+                                                <div class="testimonial_caption">
+                                                    <!-- DESCRIPTION -->
+                                                    <h2>MTHUNZI HUNA</h2>
+                                                    <h4><span>ADMINISTRATOR</span></h4>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-12 text-center">
+                                                <!-- IMAGE -->
+                                                <img src="~/images/Mthunzi.jpg" alt="">
+                                                <div class="testimonial_caption">
+                                                    <!-- DESCRIPTION -->
+                                                    <h2>MTHUNZI HUNA</h2>
+                                                    <h4><span> ADMIMISTRATOR</span></h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
     <section class="contact page" id="CONTACT">
