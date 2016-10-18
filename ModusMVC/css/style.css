@@ -36,7 +36,7 @@ p {
         .section_title h2:after {
             content: "";
             position: absolute;
-            bottom: -20px;
+            bottom: -35px;
             width: 60px;
             height: 1px;
             background-color: #f39c12;
@@ -660,7 +660,7 @@ div.carousel-inner .item img {
 -----------------------------------------*/
 
 .apps_screen {
-    background: #f1f1f1;
+    background-color: rgba(33, 33, 33, .75);
     padding-bottom: 96px;
 }
 
