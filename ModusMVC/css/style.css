@@ -28,7 +28,7 @@ p {
         text-transform: uppercase;
         text-align: center;
         position: relative;
-        color: #333;
+        color: black;
         font-size: 30px;
         font-weight: 400;
     }
@@ -47,7 +47,7 @@ p {
     .section_title p {
         text-align: center;
         margin-top: 45px;
-        color: #333;
+        color: #f39c12;
         font-size: 18px;
         line-height: 28px;
         font-weight: 300;
@@ -66,7 +66,7 @@ p {
 
 .header h2 {
     height: 0px;
-    margin: 0px;
+    margin: -1px;
 }
 
 .navbar {
@@ -502,10 +502,10 @@ div.carousel-inner .item img {
         background: #f39c12;
     }
 /*---------------------------------------
-   SECTION FEATURES              
+   SECTION SERVICES              
 -----------------------------------------*/
 
-.features {
+.SERVICES {
     background-color: #f1f1f1;
 }
 
@@ -736,10 +736,10 @@ div.carousel-inner .item img {
         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
 /*---------------------------------------
-   SECTION DOWNLOAD              
+   SECTION VACANCIES              
 -----------------------------------------*/
 
-.download {
+.VACANCIES {
     background: #f1f1f1;
 }
 
@@ -1279,7 +1279,7 @@ li.active a, li.active a:hover {
 }
 
 #dp {
-    opacity: 0.5;
+    opacity: 1.5;
     filter: alpha(opacity=50); /* For IE8 and earlier */
 }
 
