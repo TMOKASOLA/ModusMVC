@@ -1,6 +1,6 @@
 
 * {
-    margin: 0;
+    margin: 0px;
     /* padding: 0; */
 }
 
@@ -93,16 +93,14 @@ p {
 
             .navbar-default .navbar-nav > li > a:focus {
                 color: #B5B5B5;
-                
             }
-   
+
     .navbar-default {
         -webkit-transition: all 1s;
         -moz-transition: all 1s;
         -o-transition: all 1s;
         transition: all 1s;
         z-index: 110;
-       
     }
 
     .navbar-brand img {
@@ -443,7 +441,7 @@ tuor:visited {
 }
 
     .leadership .section_overlay {
-        background: red;
+        background: rgba(0, 0, 0, .6);
         padding-top: 80px;
         padding-bottom: 80px;
     }
