@@ -18,6 +18,7 @@ p {
    COMMON STYLES             
 -----------------------------------------*/
 
+
 .section_title {
     padding-top: 90px;
     padding-bottom: 50px;
@@ -83,7 +84,7 @@ p {
 
         .navbar-default .navbar-nav > li > a {
             color: #B5B5B5;
-            font-family: 'Raleway', sans-serif;
+            font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
         }
 
             .navbar-default .navbar-nav > li > a:hover {
@@ -704,7 +705,7 @@ div.carousel-inner .item img {
     }
 
 .single_fun_facts {
-    font-family: 'Source Sans Pro', sans-serif;
+      font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
     .single_fun_facts i {
@@ -720,7 +721,7 @@ div.carousel-inner .item img {
         font-size: 35px;
         margin-top: 15px;
         margin-bottom: 1px;
-        font-family: 'Source Sans Pro', sans-serif;
+         font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
 
         .single_fun_facts h2 span {
@@ -734,7 +735,7 @@ div.carousel-inner .item img {
         margin-top: 0px;
         font-weight: 300;
         text-transform: uppercase;
-        font-family: 'Source Sans Pro', sans-serif;
+        font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     }
 /*---------------------------------------
    SECTION DOWNLOAD              
@@ -1308,7 +1309,7 @@ p {
 }
 
 .tab-content {
-    font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", serif;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     background-color: transparent;
     border-color: transparent;
 }
@@ -1324,6 +1325,10 @@ p {
 #Academy {
   padding-bottom:110px;
   
+}
+.leadership_caption h3 {
+    text-align:center;
+    font-weight:bold;
 }
 
 
