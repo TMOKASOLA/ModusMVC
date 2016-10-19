@@ -289,6 +289,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\1328573207_black-power.jpg" />
+    <Content Include="images\Indigo.png" />
     <Content Include="images\IndigoClient.png" />
     <Content Include="images\IndigoCube.jpg" />
     <Content Include="images\africa.png" />

@@ -1330,7 +1330,10 @@ p {
     text-align:center;
     font-weight:bold;
 }
-
+.leadership_caption img {
+   
+    padding-left:45px;
+}
 
 .fadeInUp > ul > li {
     list-style: none;
