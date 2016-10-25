@@ -293,6 +293,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="images\1328573207_black-power.jpg" />
+    <Content Include="images\Client.png" />
+    <Content Include="images\Clients.png" />
+    <Content Include="images\CloudSmiths-Logo.png" />
     <Content Include="images\Indigo.png" />
     <Content Include="images\IndigoClient.png" />
     <Content Include="images\IndigoCube.jpg" />
@@ -316,6 +319,7 @@
     <Content Include="images\home.jpg" />
     <Content Include="images\imageedit_1_4390436235.png" />
     <Content Include="images\IndigoCube.png" />
+    <Content Include="images\Indigos.png" />
     <Content Include="images\internship.jpg" />
     <Content Include="images\learnership.jpg" />
     <Content Include="images\logo.png" />
