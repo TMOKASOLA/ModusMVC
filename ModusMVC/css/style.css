@@ -402,6 +402,9 @@ tuor:visited {
             background: #f39c12;
             height: 1px;
         }
+.inner_about_title h2 {
+    color:#000000;
+}
 
 
     .vacancy_title p {
@@ -660,7 +663,9 @@ div.carousel-inner .item img {
     font-size: 18px;
     font-weight: 200;
 }
-
+.video_title h2 {
+    color:#000000;
+}
 
 /*---------------------------------------
    SECTION CALL TO ACTION              
