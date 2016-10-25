@@ -67,6 +67,7 @@ p {
 .header h2 {
     height: 0px;
     margin: -1px;
+    padding-bottom: 16px;
 }
 
 .navbar {
@@ -377,7 +378,7 @@ tuor:visited {
         .vacancy_title h2:after {
             content: "";
             position: absolute;
-            bottom: 272px;
+            bottom: 266px;
             left: 24%;
             width: 191px;
             background: #f39c12;
@@ -386,16 +387,16 @@ tuor:visited {
           .vacancy_title2 h2:after {
             content: "";
             position: absolute;
-            bottom: 185px;
+            bottom: 153px;
             left: 20%;
             width: 191px;
             background: #f39c12;
-            height: 1px; 
+            height: 1px;
         }
            .vacancy_title3 h2:after {
             content: "";
             position: absolute;
-            bottom: 340px;
+            bottom: 308px;
             left: 3%;
             width: 191px;
             background: #f39c12;
@@ -419,6 +420,7 @@ font-weight: 200;
         font-weight: 200;
         color: #f39c12;
         font-size: medium;
+        padding-bottom: 28px;
     }
 .btn-video,
 .btn-video:active,
