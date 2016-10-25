@@ -390,7 +390,7 @@ tuor:visited {
             left: 20%;
             width: 191px;
             background: #f39c12;
-            height: 1px;
+            height: 1px; 
         }
            .vacancy_title3 h2:after {
             content: "";
