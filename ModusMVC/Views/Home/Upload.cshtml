@@ -2,7 +2,7 @@
 @{
     ViewBag.Title = "Upload";
 }
-
+<link href="~/css/Index.css" type="text/css" rel="stylesheet" />
 @section Scripts
 {
     <script src="~/Scripts/CascadingDropDownSample.js"></script>
@@ -76,7 +76,9 @@
 
 
             <div>
-                <a href="javascript: history.go(-1)">Go Back</a>
+                <ul id="Navigation">
+                    <li>@Html.ActionLink("Back", "Index", "Home")</li>
+                </ul>
             </div>
         </div>
 }

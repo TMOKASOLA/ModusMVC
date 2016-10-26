@@ -44,4 +44,30 @@
 	header{
 		margin:auto !important;
 	}
+ul#Navigation {
+   
+    text-align:left;
+   margin: 50px;
+  
+  
+}
+ul#Navigation li {
+     list-style:none;
+      
+    }
+ul#Navigation li a {
+    background-color: #f39c12;
+    color:#000000;
+    padding: 10px 20px;
+   
+    font-family:inherit;
+  
+   border-radius:3px 3px 3px 3px;
+ 
+}
+ul#Navigation li a:hover {
+    background-color:#ffffff;
+    color:#f39c12;
+    list-style:none;
+}
 

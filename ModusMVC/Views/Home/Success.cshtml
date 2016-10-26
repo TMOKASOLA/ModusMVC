@@ -1,15 +1,12 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Success";
 }
 
 <h2>Successfully applied</h2>
 
 <div class="col-xs-12" style="height:100px;"></div>
+<link href="~/css/Index.css" type="text/css" rel="stylesheet" />
 
-<div class="form-group">
-    <div class="col-md-offset-8 col-lg-6">
-       @Html.ActionLink("Done ", "Index", "Home");
-    </div>
-</div>
-
+<ul id="Navigation">
+    <li>@Html.ActionLink("Done", "Index", "Home")</li>
+</ul>
