@@ -6,20 +6,13 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Net.Mail;
-using System.Net;
 using Ionic.Zip;
-using RSAID;
 
 namespace ModusMVC.Controllers
 {
     public class HomeController : Controller
     {
-        StreamWriter writer = null;
         ModusDNAEntities db = new ModusDNAEntities();
-        Applicant tempApp = new Applicant();
-       
-
         public ActionResult Index()
         {
             return View();
@@ -43,46 +36,16 @@ namespace ModusMVC.Controllers
             return View();
         }
         [HttpPost]
-
-        [ValidateAntiForgeryToken]
         public ActionResult JoinUs(Applicant applicant)
         {
-            tempApp = applicant;
             string name = applicant.ApplicantName + " " + applicant.ApplicantSurname;
-            //  RegistrationSave = applicant;
+
             // string strMappath = "~/CV/ " + name;
 
-            try
-            {
-                if (ModelState.IsValid)
-                {
-                    Session["PersonInfo"] = applicant;
-                    applicant.ApplicantCV = "null";
-                    var id = new ValidatedRSAID(applicant.ApplicantIdentity);
 
-                    if (!id.IsValid)
-                    {
-                        ModelState.AddModelError("", "Invalid ID number Provided ");
-                    }
-                    else
-                    {
-                        db.Applicants.Add(applicant);
-                        db.SaveChanges();
-                        Session["Foldername"] = name;
-                        return RedirectToAction("Upload", applicant);
-                    }
-                }
-            }catch
-            {
-            
+            Session["Foldername"] = name;
 
-            }
-            return View("JoinUs");
-          
-
-        //    SendEmail("Test", "Welcome to modus" ,applicant.ApplicantEmail);
-
-             
+            return RedirectToAction("Upload", applicant); ;
         }
         [HttpGet]
         public ActionResult Upload()
@@ -98,13 +61,11 @@ namespace ModusMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult Upload( HttpPostedFileBase upload, HttpPostedFileBase idDoc, HttpPostedFileBase AccResults, FormCollection formCollect)
+        public ActionResult Upload(HttpPostedFileBase upload, HttpPostedFileBase idDoc, HttpPostedFileBase AccResults, FormCollection formCollect)
         {
- 
             string roleValue1 = formCollect.Get("make");
             string specialization = formCollect.Get("model");
             string applicantName = Session["Foldername"].ToString();
-            var applicant = (Applicant)Session["PersonInfo"];
             switch (roleValue1)
             {
                 case "1":
@@ -164,119 +125,63 @@ namespace ModusMVC.Controllers
                     }
 
             }
-            string readmePageURL = "~/App_Data/tempFiles/Readme(" + applicantName + ").txt";
-          //  writer = new StreamWriter(Server.MapPath("~/App_Data/tempFiles/Readme("+applicantName+").txt"), true);
+
 
             string parth = roleValue1 + "/" + specialization + "/";
 
-            if (idDoc.ContentLength > 20488576)  // 1MB 
+            if (roleValue1 == "Learnership")
             {
-                if (upload.ContentLength > 20488576)
-                {
-                    if (AccResults.ContentLength > 20488576)
-                    {
-
-
-                        #region content
-                        writer.WriteLine("Position applying for: " + roleValue1 + " " + specialization);
-                        writer.Close();
-
-                        if (roleValue1 == "Learnership")
-                        {
-                            Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
-                        }
-                        else if (roleValue1 == "Internship")
-                        {
-                            Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
-                        }
-                        else if (roleValue1 == "Graduate")
-                        {
-                            Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
-                        }
-
-                        if (!Directory.Exists(Session["Foldername"].ToString()))
-                        {
-                            DirectoryInfo di = Directory.CreateDirectory(Server.MapPath(Session["Foldername"].ToString()));
-                        }
-
-                        using (ZipFile zip = new ZipFile())
-                        {
-
-                            if (upload.ContentLength > 0)
-                            {
-                                var fileName = Path.GetFileName(upload.FileName);
-                                var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-                                upload.SaveAs(path);
-                                zip.AddFile(path, "Documents");
-                            }
-
-                            if (idDoc.ContentLength > 0)
-                            {
-
-                                var fileName = Path.GetFileName(idDoc.FileName);
-                                var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-                                idDoc.SaveAs(path);
-                                zip.AddFile(path, "Documents");
-                            }
-
-                            if (AccResults.ContentLength > 0)
-                            {
-                                var fileName = Path.GetFileName(AccResults.FileName);
-                                var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-                                AccResults.SaveAs(path);
-                                zip.AddFile(path, "Documents");
-                            }
-                            if (applicantName != null)
-                            {
-                                writer = new StreamWriter(Server.MapPath(Session["Foldername"].ToString() + " /" + applicant.ApplicantName + ".txt"), false);
-                                writer.WriteLine("Name: " + applicant.ApplicantName);
-                                writer.WriteLine("Surname: " + applicant.ApplicantSurname);
-                                writer.WriteLine("ID: " + applicant.ApplicantIdentity);
-                                writer.WriteLine("Email: " + applicant.ApplicantEmail);
-                                writer.WriteLine("Cell: " + applicant.ApplicantCell);
-                                writer.Close();
-
-                                var fileName = Path.GetFileName(readmePageURL);
-                                var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-                                AccResults.SaveAs(path);
-                                zip.AddFile(path, "Documents");
-                            }
-
-
-
-                            //////////////////////////////////////
-                            //adding zip
-
-
-                            zip.Save(Server.MapPath("~/CV/" + parth + applicantName + ".zip"));
-                            return View("Success");
-                        }
-                        #endregion
-                    }
-                    else
-                    {
-                        ModelState.AddModelError("", "Your Results Document must be a maximum of 2mb");
-                    }
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Your CV Document must be a maximum of 2mb");
-                }
+                Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
             }
-            else
+            else if (roleValue1 == "Internship")
             {
-                ModelState.AddModelError("", "Your ID Document must be a maximum of 2mb");
+                Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
+            }
+            else if (roleValue1 == "Graduate")
+            {
+                Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
             }
 
-            IDictionary<string, string> makes = GetSampleMakes();
-            CascadingDropDownSampleModel viewModel = new CascadingDropDownSampleModel()
+            if (!Directory.Exists(Session["Foldername"].ToString()))
             {
-                Makes = makes
-            };
+                DirectoryInfo di = Directory.CreateDirectory(Server.MapPath(Session["Foldername"].ToString()));
+            }
 
-     
-            return View(viewModel);
-        }
+            using (ZipFile zip = new ZipFile())
+            {
+
+                if (upload.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(upload.FileName);
+                var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                upload.SaveAs(path);
+                 zip.AddFile(path, "Documents");
+                }
+
+            if (idDoc.ContentLength > 0)
+            {
+
+                var fileName = Path.GetFileName(idDoc.FileName);
+                var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                idDoc.SaveAs(path);
+                    zip.AddFile(path, "Documents");
+                }
+
+            if (AccResults.ContentLength > 0)
+            {
+                var fileName = Path.GetFileName(AccResults.FileName);
+                var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                AccResults.SaveAs(path);
+                    zip.AddFile(path, "Documents");
+                }
+            //////////////////////////////////////
+            //adding zip
+      
+              
+                zip.Save(Server.MapPath("~/CV/" + parth + applicantName+ ".zip"));
+            }
+            return View("Success");
+    }
 
     public ActionResult Success()
     {
@@ -348,44 +253,7 @@ namespace ModusMVC.Controllers
         return models;
     }
 
-        #endregion
+    #endregion
 
-        #region Send Email
-        public static void SendEmail(string subj, string body, string email)
-        {
-
-            string fromEmail = "tithingsystem@gmail.com";
-            string emailPass = "DSO34BT2015";
-
-            MailMessage msg = new MailMessage();
-            msg.From = new MailAddress(fromEmail);
-            msg.To.Add(new MailAddress(email));
-            msg.Subject =subj;
-            msg.Body =body;
-            msg.IsBodyHtml = true;
-
-       
-            SmtpClient smtp = new SmtpClient();
-
-            smtp.Host = "smtp.gmail.com";
-            smtp.Credentials = new NetworkCredential(fromEmail, emailPass);
-            smtp.EnableSsl = true;
-            smtp.Port = 587;
-
-            try
-            {
-                 smtp.Send(msg);
-       
-            }
-
-//#pragma warning disable CS0168 // The variable 'error' is declared but never used
-            catch (Exception error)
-//#pragma warning restore CS0168 // The variable 'error' is declared but never used
-            {
-               
-            }
-        }
-        #endregion
-
-    }
+}
 }

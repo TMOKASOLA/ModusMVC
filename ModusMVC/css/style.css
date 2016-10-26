@@ -515,7 +515,12 @@ div.carousel-inner .item img {
         text-align: center;
         padding-top: 50px;
     }
-
+    .leadership_caption img.center {
+    display: block;
+    margin: 0 auto;
+} 
+      
+    
     .leadership_caption h4 {
         color: #f39c12;
     }
@@ -1380,8 +1385,7 @@ p {
     font-weight:bold;
 }
 .leadership_caption img {
-   
-padding-left: 621px;
+   /* padding-left: 600px; */
 }
 
 .leadership_caption h3 {
