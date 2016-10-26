@@ -5,6 +5,7 @@
 }
 
 <h2>Join Us Page</h2>
+<link href="~/css/Index.css" type="text/css" rel="stylesheet" />
 
 @using (Html.BeginForm())
 {
@@ -68,6 +69,10 @@
 
 
 <div>
-    <a href="javascript: history.go(-1)">Go Back</a>
+    @*<a href="javascript: history.go(-1)">Go Back</a>*@
+
+    <ul id="Navigation">
+        <li>@Html.ActionLink("Back", "Index", "Home")</li>
+    </ul>
 </div>
         }
