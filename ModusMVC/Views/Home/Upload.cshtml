@@ -39,7 +39,7 @@
                 @Html.Label("Specialization", new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
                     <select id="model" class="size-200 form-control" name="model" disabled>
-                        <option value="-1">Type of Specialization</option>
+                        <option value="-1" >Type of Specialization</option>
                     </select>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             <div class="form-group">
                 @Html.Label("CV", new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    <input type="file" id="Avatar" name="upload" class="form-control" />
+                    <input type="file" id="Avatar" name="upload" class="form-control" required/>
                 </div>
             </div>
 
@@ -56,21 +56,21 @@
             <div class="form-group">
                 @Html.Label("ID DOCUMENT", new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    <input type="file" id="Avatar" name="idDoc" class="form-control" />
+                    <input type="file" id="Avatar" name="idDoc" class="form-control" required/>
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.Label("ACADEMIC RESULTS", new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    <input type="file" id="Avatar" name="AccResults" class="form-control" />
+                    <input type="file" id="Avatar" name="AccResults" class="form-control" required/>
                 </div>
             </div>
 
 
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Apply" class="btn home-btn wow fadeInLeft" />
+                    <input type="submit" value="Apply" class="btn home-btn wow fadeInLeft" onclick="myFunction()" />
                 </div>
             </div>
 
@@ -81,4 +81,13 @@
                 </ul>
             </div>
         </div>
+
 }
+
+<script>
+function myFunction() {
+    var x = document.getElementById("Avatar").required;
+    document.getElementById("demo").innerHTML = x;
+}
+</script>
+

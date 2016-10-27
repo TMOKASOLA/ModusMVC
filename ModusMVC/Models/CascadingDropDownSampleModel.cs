@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -17,6 +18,21 @@ namespace CSDropdownListMVC4.Models
         /// <summary>
         /// Dictionary holding the sample Makes values
         /// </summary>
+        ///   
+        [Required]
         public IDictionary<string, string> Makes { get; set; }
+        [Required]
+        [DataType(DataType.Upload)]
+        [Display(Name = "Please Upload CV/Resume")]
+        public HttpPostedFileBase upload { get; set; }
+        [Required]
+        [DataType(DataType.Upload)]
+        [Display(Name = "Please Upload ID Document")]
+        public HttpPostedFileBase idDoc { get; set; }
+        [Required]
+        [DataType(DataType.Upload)]
+        [Display(Name = "Please Upload Credentials")]
+        public HttpPostedFileBase AccResults { get; set; }
+
     }
 }

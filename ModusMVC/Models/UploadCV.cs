@@ -8,5 +8,6 @@ namespace ModusMVC.Models
     public class UploadCV
     {
         public HttpPostedFileBase uploadFile { get; set; }
+
     }
 }
