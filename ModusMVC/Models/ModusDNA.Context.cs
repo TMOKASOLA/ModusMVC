@@ -25,6 +25,7 @@ namespace ModusMVC.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Admin> Admins { get; set; }
         public virtual DbSet<Applicant> Applicants { get; set; }
         public virtual DbSet<Career> Careers { get; set; }
         public virtual DbSet<CareerApplicant> CareerApplicants { get; set; }

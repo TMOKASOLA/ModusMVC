@@ -4,7 +4,8 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9deaa71abb51429691812618e6fe5d77" Name="Diagram1">
+      <Diagram DiagramId="66c8c99a9ca94a60ac9bdc5fbf90e377" Name="Diagram1">
+        <EntityTypeShape EntityType="ModusDNAModel.Admin" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ModusDNAModel.Applicant" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="ModusDNAModel.Career" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ModusDNAModel.CareerApplicant" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />

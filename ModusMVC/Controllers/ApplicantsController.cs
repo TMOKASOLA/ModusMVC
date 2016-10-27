@@ -19,7 +19,7 @@ namespace ModusMVC.Controllers
         {
             return View(db.Applicants.ToList());
         }
-
+        
         // GET: Applicants/Details/5
         public ActionResult Details(int? id)
         {

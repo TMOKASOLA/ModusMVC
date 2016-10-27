@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 
 namespace ModusMVC.Models
 {
+  
+
     public class ExternalLoginConfirmationViewModel
     {
         [Required]
@@ -60,6 +64,7 @@ namespace ModusMVC.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
     }
 
     public class RegisterViewModel
@@ -109,4 +114,8 @@ namespace ModusMVC.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+
+ 
+
 }

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using System.Net.Mail;
 using System.Net;
 using Ionic.Zip;
+using System.Web.Security;
 
 namespace ModusMVC.Controllers
 {
@@ -271,10 +272,41 @@ namespace ModusMVC.Controllers
         {
             return View();
         }
+
+        [Authorize(Users = "tcmokasola@gmail.com")]
         public ActionResult admin()
+        {
+           
+            if (!ModelState.IsValid)
+            {
+                return View("NotAllowed");
+            }
+            return View();
+        }
+        #region Login
+        public ActionResult Login()
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Login(LoginViewModel model)
+        {
+            Authentication auth = new Authentication();
+
+            if (ModelState.IsValid)
+            {
+                bool valid = auth.Authenticated(model.Email, model.Password);
+                if (valid)
+                {
+
+                    FormsAuthentication.SetAuthCookie(model.Email, true);
+                    return View("Admin");
+                }
+            }
+            return View();
+        }
+        #endregion
         //////////////////////////////////////////////////////////
         /// <summary>
         /// AJAX Action to send sample Models in JSON format based on the selected make
@@ -366,7 +398,7 @@ namespace ModusMVC.Controllers
             }
 
             //#pragma warning disable CS0168 // The variable 'error' is declared but never used
-            catch (Exception error)
+            catch 
             //#pragma warning restore CS0168 // The variable 'error' is declared but never used
             {
 

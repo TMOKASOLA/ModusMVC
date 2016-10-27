@@ -5,6 +5,14 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
       <Schema Namespace="ModusDNAModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminUsername" />
+          </Key>
+          <Property Name="AdminUsername" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="AdminPassword" Type="varchar" MaxLength="50" />
+          <Property Name="AdminName" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Applicants">
           <Key>
             <PropertyRef Name="ApplicantID" />
@@ -60,6 +68,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModusDNAModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Applicants" EntityType="Self.Applicants" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Career" EntityType="Self.Career" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CareerApplicants" EntityType="Self.CareerApplicants" Schema="dbo" store:Type="Tables" />
@@ -77,6 +86,14 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ModusDNAModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="AdminUsername" />
+          </Key>
+          <Property Name="AdminUsername" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AdminPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AdminName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="Applicant">
           <Key>
             <PropertyRef Name="ApplicantID" />
@@ -136,6 +153,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModusDNAEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
           <EntitySet Name="Applicants" EntityType="Self.Applicant" />
           <EntitySet Name="Careers" EntityType="Self.Career" />
           <EntitySet Name="CareerApplicants" EntityType="Self.CareerApplicant" />
@@ -154,6 +172,15 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModusDNAModelStoreContainer" CdmEntityContainer="ModusDNAEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="ModusDNAModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="AdminUsername" ColumnName="AdminUsername" />
+                <ScalarProperty Name="AdminPassword" ColumnName="AdminPassword" />
+                <ScalarProperty Name="AdminName" ColumnName="AdminName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Applicants">
             <EntityTypeMapping TypeName="ModusDNAModel.Applicant">
               <MappingFragment StoreEntitySet="Applicants">

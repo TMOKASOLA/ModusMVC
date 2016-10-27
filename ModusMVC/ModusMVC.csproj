@@ -220,6 +220,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicantsController.cs" />
     <Compile Include="Controllers\ApplicantsFilesController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\CascadingDropDownSampleController.cs" />
     <Compile Include="Controllers\GraduatesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -229,9 +230,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Admin.cs">
+      <DependentUpon>ModusDNA.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Applicant.cs">
       <DependentUpon>ModusDNA.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Authentication.cs" />
     <Compile Include="Models\Career.cs">
       <DependentUpon>ModusDNA.tt</DependentUpon>
     </Compile>
@@ -462,10 +467,12 @@
     <Content Include="Views\ApplicantsFiles\InternshipSD.cshtml" />
     <Content Include="Views\ApplicantsFiles\NotFoundInternSD.cshtml" />
     <Content Include="Views\ApplicantsFiles\LearnershipSD.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\tempFiles\" />
     <Folder Include="CV\" />
+    <Folder Include="Views\Authentication\" />
     <Folder Include="Views\Upload\" />
   </ItemGroup>
   <ItemGroup>
