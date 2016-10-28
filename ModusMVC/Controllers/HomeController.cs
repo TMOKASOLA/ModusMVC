@@ -225,6 +225,7 @@ namespace ModusMVC.Controllers
                                         writer.WriteLine("Email: " + applicant.ApplicantEmail);
                                         writer.WriteLine("Cell: " + applicant.ApplicantCell);
                                         writer.WriteLine("Position applying for: " + roleValue1 + " " + specialization);
+                                        writer.WriteLine("Date of application: "+ DateTime.Now.ToShortDateString());
                                         writer.Close();
                                         string fileName = null;
                                         fileName = Path.GetFileName(readmePageURL);
