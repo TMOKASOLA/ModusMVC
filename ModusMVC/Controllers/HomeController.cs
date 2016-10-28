@@ -163,87 +163,97 @@ namespace ModusMVC.Controllers
                     {
                         if (AccResults.ContentLength < 2048857)
                         {
-
-                            #region processs
-
-
-                            if (roleValue1 == "Learnership")
+                            try
                             {
-                                Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
-                            }
-                            else if (roleValue1 == "Internship")
-                            {
-                                Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
-                            }
-                            else if (roleValue1 == "Graduate")
-                            {
-                                Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
-                            }
+                                #region processs
 
-                            if (!Directory.Exists(Session["Foldername"].ToString()))
-                            {
-                                DirectoryInfo di = Directory.CreateDirectory(Server.MapPath(Session["Foldername"].ToString()));
-                            }
 
-                            using (ZipFile zip = new ZipFile())
-                            {
-
-                                if (upload.ContentLength > 0)
+                                if (roleValue1 == "Learnership")
                                 {
-                                    var fileName = Path.GetFileName(upload.FileName);
-                                    var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-                                    upload.SaveAs(path);
-                                    zip.AddFile(path, "Documents");
+                                    Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
+                                }
+                                else if (roleValue1 == "Internship")
+                                {
+                                    Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
+                                }
+                                else if (roleValue1 == "Graduate")
+                                {
+                                    Session["Foldername"] = "~/CV/" + parth + Session["Foldername"].ToString();
                                 }
 
-                                if (idDoc.ContentLength > 0)
+                                if (!Directory.Exists(Session["Foldername"].ToString()))
                                 {
-
-                                    var fileName = Path.GetFileName(idDoc.FileName);
-                                    var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-                                    idDoc.SaveAs(path);
-                                    zip.AddFile(path, "Documents");
+                                    DirectoryInfo di = Directory.CreateDirectory(Server.MapPath(Session["Foldername"].ToString()));
                                 }
 
-                                if (AccResults.ContentLength > 0)
+                                using (ZipFile zip = new ZipFile())
                                 {
-                                    var fileName = Path.GetFileName(AccResults.FileName);
-                                    var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-                                    AccResults.SaveAs(path);
-                                    zip.AddFile(path, "Documents");
+
+                                    if (upload.ContentLength > 0)
+                                    {
+                                        var fileName = Path.GetFileName(upload.FileName);
+                                        var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                                        upload.SaveAs(path);
+                                        zip.AddFile(path, "Documents");
+                                    }
+
+                                    if (idDoc.ContentLength > 0)
+                                    {
+
+                                        var fileName = Path.GetFileName(idDoc.FileName);
+                                        var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                                        idDoc.SaveAs(path);
+                                        zip.AddFile(path, "Documents");
+                                    }
+
+                                    if (AccResults.ContentLength > 0)
+                                    {
+                                        var fileName = Path.GetFileName(AccResults.FileName);
+                                        var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                                        AccResults.SaveAs(path);
+                                        zip.AddFile(path, "Documents");
+                                    }
+                                    if (applicantName != null)
+                                    {
+                                        string readmePageURL = "~/App_Data/tempFiles/Readme(" + applicantName + ").txt";
+                                        writer = new StreamWriter(Server.MapPath(readmePageURL), false);
+
+                                        writer.WriteLine("Name: " + applicant.ApplicantName);
+                                        writer.WriteLine("Surname: " + applicant.ApplicantSurname);
+                                        writer.WriteLine("ID: " + applicant.ApplicantIdentity);
+                                        writer.WriteLine("Email: " + applicant.ApplicantEmail);
+                                        writer.WriteLine("Cell: " + applicant.ApplicantCell);
+                                        writer.WriteLine("Position applying for: " + roleValue1 + " " + specialization);
+                                        writer.Close();
+
+                                        var fileName = Path.GetFileName(readmePageURL);
+                                        var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+
+                                        System.IO.File.Move(Server.MapPath(readmePageURL), path);
+
+                                        zip.AddFile(path, "Documents");
+
+                                        zip.Save(Server.MapPath("~/CV/" + parth + applicantName + ".zip"));
+                                        return View("Success");
+                                    }
+
+
+
+                                    //////////////////////////////////////
+                                    //adding zip
+
+
+
                                 }
-                                if (applicantName != null)
-                                {
-                                    string readmePageURL = "~/App_Data/tempFiles/Readme(" + applicantName + ").txt";
-                                    writer = new StreamWriter(Server.MapPath(readmePageURL), false);
-
-                                    writer.WriteLine("Name: " + applicant.ApplicantName);
-                                    writer.WriteLine("Surname: " + applicant.ApplicantSurname);
-                                    writer.WriteLine("ID: " + applicant.ApplicantIdentity);
-                                    writer.WriteLine("Email: " + applicant.ApplicantEmail);
-                                    writer.WriteLine("Cell: " + applicant.ApplicantCell);
-                                    writer.WriteLine("Position applying for: " + roleValue1 + " " + specialization);
-                                    writer.Close();
-
-                                    var fileName = Path.GetFileName(readmePageURL);
-                                    var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
-
-                                    System.IO.File.Move(Server.MapPath(readmePageURL), path);
-
-                                    zip.AddFile(path, "Documents");
-                                }
-
-
-
-                                //////////////////////////////////////
-                                //adding zip
-
-
-                                zip.Save(Server.MapPath("~/CV/" + parth + applicantName + ".zip"));
-                                return View("Success");
-
+                                #endregion
                             }
-                            #endregion
+                            catch (Exception ex)
+                            {
+
+                                ModelState.AddModelError("", ex.Message);
+                            }
+
+                            
                         }
                         else
                         {
@@ -260,13 +270,14 @@ namespace ModusMVC.Controllers
                     ModelState.AddModelError("", "Your ID Document must be a maximum of 2mb");
                 }
 
-                IDictionary<string, string> makes = GetSampleMakes();
-                CascadingDropDownSampleModel viewModel = new CascadingDropDownSampleModel()
-                {
-                    Makes = makes
-                };
             }
-            return View();
+
+            IDictionary<string, string> makes = GetSampleMakes();
+            CascadingDropDownSampleModel viewModel = new CascadingDropDownSampleModel()
+            {
+                Makes = makes
+            };
+            return View(viewModel);
         }
 
         public ActionResult Success()

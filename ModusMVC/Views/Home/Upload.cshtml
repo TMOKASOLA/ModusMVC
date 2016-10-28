@@ -48,22 +48,23 @@
             <div class="form-group">
                 @Html.Label("CV", new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    <input type="file" id="Avatar" name="upload" class="form-control" required/>
+                    <input type="file" id="Avatar" name="upload" class="form-control" accept="pdf,.doc" required/>
                 </div>
             </div>
 
 
             <div class="form-group">
-                @Html.Label("ID DOCUMENT", new { @class = "control-label col-md-2" })
+                @Html.Label("ID DOCUMENT", new { @class = "control-label col-md-2"})
                 <div class="col-md-4">
-                    <input type="file" id="Avatar" name="idDoc" class="form-control" required/>
+                    
+                    @Html.TextBoxFor(m => m.idDoc, new { type = "file" ,@class="form-control"})
                 </div>
             </div>
 
             <div class="form-group">
                 @Html.Label("ACADEMIC RESULTS", new { @class = "control-label col-md-2" })
                 <div class="col-md-4">
-                    <input type="file" id="Avatar" name="AccResults" class="form-control" required/>
+                    <input type="file" id="Avatar" name="AccResults" class="form-control" accept="pdf,.doc"  required/>
                 </div>
             </div>
 
@@ -89,5 +90,24 @@ function myFunction() {
     var x = document.getElementById("Avatar").required;
     document.getElementById("demo").innerHTML = x;
 }
+</script>
+
+<script>
+    var myfile = "";
+
+    $('#Avatar').click(function (e) {
+        e.preventDefault();
+        $('#Avatar').trigger('click');
+    });
+
+    $('#Avatar').on('change', function () {
+        myfile = $(this).val();
+        var ext = myfile.split('.').pop();
+        if (ext == "pdf" || ext == "docx" || ext == "doc") {
+            alert(ext);
+        } else {
+            alert(ext);
+        }
+    });
 </script>
 
