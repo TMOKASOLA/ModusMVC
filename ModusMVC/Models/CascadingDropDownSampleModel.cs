@@ -27,6 +27,7 @@ namespace CSDropdownListMVC4.Models
         public HttpPostedFileBase upload { get; set; }
 
         [Required]
+        [DataType(DataType.Upload)]
         [FileExtensions(Extensions = "txt,doc,docx,pdf", ErrorMessage = "Please upload valid format")]
         public HttpPostedFileBase idDoc { get; set; }
 
