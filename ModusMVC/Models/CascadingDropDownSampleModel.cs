@@ -25,10 +25,11 @@ namespace CSDropdownListMVC4.Models
         [DataType(DataType.Upload)]
         [Display(Name = "Please Upload CV/Resume")]
         public HttpPostedFileBase upload { get; set; }
+
         [Required]
-        [DataType(DataType.Upload)]
-        [Display(Name = "Please Upload ID Document")]
+        [FileExtensions(Extensions = "txt,doc,docx,pdf", ErrorMessage = "Please upload valid format")]
         public HttpPostedFileBase idDoc { get; set; }
+
         [Required]
         [DataType(DataType.Upload)]
         [Display(Name = "Please Upload Credentials")]
