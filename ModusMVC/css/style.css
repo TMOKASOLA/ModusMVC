@@ -670,9 +670,6 @@ div.carousel-inner .item img {
 }
 .video_title h2 {
     color:#000000;
-    font-weight: 800;
-    font-size: 30px;
-    line-height: 37px;
 }
 
 /*---------------------------------------
@@ -1388,8 +1385,7 @@ p {
     font-weight:bold;
 }
 .leadership_caption img {
-   
-/* padding-left: 600px; */
+   /* padding-left: 600px; */
 }
 
 .leadership_caption h3 {
