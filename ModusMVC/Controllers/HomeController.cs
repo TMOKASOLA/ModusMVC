@@ -289,6 +289,7 @@ namespace ModusMVC.Controllers
         }
 
         [Authorize(Users = "tcmokasola@gmail.com")]
+        [Authorize(Users = "PMabitsela@jhb.dvt.co.za")]
         public ActionResult admin()
         {
 
@@ -317,6 +318,9 @@ namespace ModusMVC.Controllers
 
                     FormsAuthentication.SetAuthCookie(model.Email, true);
                     return View("Admin");
+                }else
+                {
+                    ModelState.AddModelError("", "Please check your Username and password");
                 }
             }
             return View();
