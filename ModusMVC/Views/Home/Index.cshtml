@@ -848,6 +848,20 @@
     </section>
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Show hide popover
+            $(".dropdown").click(function () {
+                $(this).find(".dropdown-menu").slideToggle("fast");
+            });
+        });
+        $(document).on("click", function (event) {
+            var $trigger = $(".dropdown");
+            if ($trigger !== event.target && !$trigger.has(event.target).length) {
+                $(".dropdown-menu").slideUp("fast");
+            }
+        });</script>
+
     <script src="~/js/owl.carousel.js"></script>
     <script src="~/js/jquery.fitvids.js"></script>
     <script src="~/js/smoothscroll.js"></script>
