@@ -149,6 +149,7 @@ p {
 
     .header .section_overlay {
         background-color: rgba(33, 33, 33, .75);
+        background-size: cover;
     }
 
 .logo {
