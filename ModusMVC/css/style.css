@@ -68,6 +68,7 @@ p {
     height: 0px;
     margin: -1px;
     padding-bottom: 30px;
+    color: #f39c12;
 }
 
 .navbar {
@@ -664,10 +665,12 @@ div.carousel-inner .item img {
 #list {
     font-size: medium;
     font-weight: 200;
+    color: #f39c12;
 }
 .video_title h5{
     font-size: 18px;
     font-weight: 200;
+    color: #f39c12;
 }
 .video_title h2 {
     color:#000000;
@@ -1392,6 +1395,7 @@ p {
 
 .leadership_caption h3 {
     padding-top:23px;
+    color: #f39c12;
 }
 .fadeInUp > ul > li {
     list-style: none;
