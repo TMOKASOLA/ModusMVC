@@ -14,6 +14,8 @@ namespace ModusMVC.Controllers
             return View();
         }
         [HttpGet]
+        [Authorize(Users = "tcmokasola@gmail.com")]
+        [Authorize(Users = "PMabitsela@jhb.dvt.co.za")]
         public ActionResult Graduates()
         {
             try
@@ -40,6 +42,7 @@ namespace ModusMVC.Controllers
         {
             return View();
         }
+
         public FileResult Download(string ImageName)
         {
             //      return  File("~/CV/Graduate/7/" + filename, System.Net.Mime.MediaTypeNames.Application.Octet);
@@ -53,6 +56,8 @@ namespace ModusMVC.Controllers
         }
 
         /////////////////////////////////////////
+        [Authorize(Users = "tcmokasola@gmail.com")]
+        [Authorize(Users = "PMabitsela@jhb.dvt.co.za")]
         public ActionResult InternshipSQA()
         {
             try
@@ -92,6 +97,8 @@ namespace ModusMVC.Controllers
         }
 
         /////////////////////////////////////////
+        [Authorize(Users = "tcmokasola@gmail.com")]
+        [Authorize(Users = "PMabitsela@jhb.dvt.co.za")]
         public ActionResult InternshipSD()
         {
             try
@@ -125,6 +132,7 @@ namespace ModusMVC.Controllers
         }
 
         /////////////////////////////////////////
+       
         public ActionResult LearnershipSD()
         {
             try

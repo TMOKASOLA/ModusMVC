@@ -151,9 +151,9 @@ namespace ModusMVC.Controllers
             }
             #endregion
 
-     
+
             string parth = roleValue1 + "/" + specialization + "/";
-          
+
             if (ModelState.IsValid)
             {
 
@@ -215,7 +215,8 @@ namespace ModusMVC.Controllers
                                     }
                                     if (applicantName != null)
                                     {
-                                        string readmePageURL = "~/App_Data/tempFiles/Readme(" + applicantName + ").txt";
+                                        string readmePageURL = null;
+                                        readmePageURL = "~/App_Data/tempFiles/Readme(" + applicantName + ").txt";
                                         writer = new StreamWriter(Server.MapPath(readmePageURL), false);
 
                                         writer.WriteLine("Name: " + applicant.ApplicantName);
@@ -224,10 +225,12 @@ namespace ModusMVC.Controllers
                                         writer.WriteLine("Email: " + applicant.ApplicantEmail);
                                         writer.WriteLine("Cell: " + applicant.ApplicantCell);
                                         writer.WriteLine("Position applying for: " + roleValue1 + " " + specialization);
+                                        writer.WriteLine("Date of application: "+ DateTime.Now.ToShortDateString());
                                         writer.Close();
-
-                                        var fileName = Path.GetFileName(readmePageURL);
-                                        var path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
+                                        string fileName = null;
+                                        fileName = Path.GetFileName(readmePageURL);
+                                        string path = null;
+                                        path = Path.Combine(Server.MapPath(Session["Foldername"].ToString() + "/"), fileName);
 
                                         System.IO.File.Move(Server.MapPath(readmePageURL), path);
 
@@ -253,7 +256,7 @@ namespace ModusMVC.Controllers
                                 ModelState.AddModelError("", ex.Message);
                             }
 
-                            
+
                         }
                         else
                         {
@@ -286,9 +289,10 @@ namespace ModusMVC.Controllers
         }
 
         [Authorize(Users = "tcmokasola@gmail.com")]
+        [Authorize(Users = "PMabitsela@jhb.dvt.co.za")]
         public ActionResult admin()
         {
-           
+
             if (!ModelState.IsValid)
             {
                 return View("NotAllowed");
@@ -314,6 +318,9 @@ namespace ModusMVC.Controllers
 
                     FormsAuthentication.SetAuthCookie(model.Email, true);
                     return View("Admin");
+                }else
+                {
+                    ModelState.AddModelError("", "Please check your Username and password");
                 }
             }
             return View();
@@ -410,7 +417,7 @@ namespace ModusMVC.Controllers
             }
 
             //#pragma warning disable CS0168 // The variable 'error' is declared but never used
-            catch 
+            catch
             //#pragma warning restore CS0168 // The variable 'error' is declared but never used
             {
 

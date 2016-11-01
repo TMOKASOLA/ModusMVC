@@ -11,7 +11,8 @@ namespace ModusMVC.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Applicant
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -19,15 +20,30 @@ namespace ModusMVC.Models
         {
             this.CareerApplicants = new HashSet<CareerApplicant>();
         }
-    
+        [Required]
         public int ApplicantID { get; set; }
+        [Required]
+        [StringLength(50)]
         public string ApplicantName { get; set; }
+        [Required]
+        [StringLength(50)]
         public string ApplicantSurname { get; set; }
+        [Required]
+        [RegularExpression("^[0-9]*$", ErrorMessage = "ID must be numeric")]
+        [StringLength(13)]
         public string ApplicantIdentity { get; set; }
+        [Required]
+        [StringLength(12)]
+        [RegularExpression("(?:\\+27|27)|0((60[3-9]|64[0-5])\\d{6}|(7[1-4689]|6[1-3]|8[1-4])\\d{7})", ErrorMessage = "Invalid Cellphone Number Provided")]
+
         public string ApplicantCell { get; set; }
+        [Required]
+        [DataType(DataType.EmailAddress)]
         public string ApplicantEmail { get; set; }
+
+        [DataType(DataType.EmailAddress)]
         public string ApplicantCV { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CareerApplicant> CareerApplicants { get; set; }
     }
