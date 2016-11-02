@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900,300italic,400italic" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <!-- Bootstrap -->
-    <link href="~/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 
 
@@ -77,9 +77,9 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">ABOUT US<span class="caret"></span></a>
                                 <ul class="dropdown-menu" id="dp">
-                                    <li ><a href="#ABOUT">COMPANY PROFILE</a></li>
-                                    <li ><a href="#Academy">ACADEMY</a></li>
-                                    <li ><a href="#LEADERSHIP">LEADERSHIP</a></li>
+                                    <li><a href="#ABOUT"  class="dropdown-toggle">COMPANY PROFILE</a></li>
+                                    <li class="dropdown-toggle"  ><a href="#Academy">ACADEMY</a></li>
+                                    <li class="dropdown-toggle"   ><a href="#LEADERSHIP">LEADERSHIP</a></li>
                                 </ul>
                             </li>
                             <li><a href="#SERVICES">SERVICES</a></li>
@@ -833,7 +833,7 @@
                 <div class="col-md-6">
                     <div class="copy_right_text">
                         <!-- COPYRIGHT TEXT -->
-                        <p>Copyright &copy; 2016 <a href="">MODUS</a> <span>By </span><a href="http://localhost:52457/Home/admin" target="_blank">MODUS DNA</a></p>
+                        <p>Copyright &copy;<span id="year"></span> <a href="">MODUS</a> <span>By </span><a href="/Home/admin" target="_blank">MODUS DNA</a></p>
                     </div>
                 </div>
 
@@ -845,11 +845,15 @@
             </div>
         </div>
     </section>
-
+    <script>
+   
+  document.getElementById("year").innerHTML = new Date().getFullYear();
+    
+    </script>
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
-
-
+ 
+   
     <script src="~/js/owl.carousel.js"></script>
     <script src="~/js/jquery.fitvids.js"></script>
     <script src="~/js/smoothscroll.js"></script>

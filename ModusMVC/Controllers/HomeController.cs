@@ -53,7 +53,7 @@ namespace ModusMVC.Controllers
                 if (id.IsValid)
                 {
                     Session["PersonInfo"] = applicant;
-                    applicant.ApplicantCV = "null";
+                    applicant.ApplicantCV = DateTime.Now.ToShortDateString();
                     db.Applicants.Add(applicant);
                     db.SaveChanges();
                     Session["Foldername"] = name;

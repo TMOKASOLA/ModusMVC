@@ -1310,7 +1310,7 @@ select:-webkit-autofill {
     }
 
 li.active a, li.active a:hover {
-    background-color: #5f5b5b;
+    background-color: rgba(95, 91, 91, 0.08);
     text-decoration-color: white;
 }
 
