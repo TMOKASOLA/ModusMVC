@@ -42,7 +42,7 @@ namespace ModusMVC.Models
         public string ApplicantEmail { get; set; }
 
         [DataType(DataType.EmailAddress)]
-        public string ApplicantCV { get; set; }
+        public string ApplicationDate { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CareerApplicant> CareerApplicants { get; set; }
